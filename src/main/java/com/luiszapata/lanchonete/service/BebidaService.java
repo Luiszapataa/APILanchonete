@@ -20,5 +20,13 @@ public class BebidaService {
 
     }
 
+    public Bebida salvar(Bebida bebida){
+        if (bebidaRepository.existsByCodigo(bebida.getCodigo())){
+            throw new IllegalArgumentException("codigo existente");
+
+        } else {
+            return bebidaRepository .save(bebida);
+        }
+    }
 
 }
