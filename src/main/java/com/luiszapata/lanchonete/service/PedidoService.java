@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-public class PedidoService {
 
     @Service
     public class PedidoService{
@@ -40,5 +39,15 @@ public class PedidoService {
             }
         }
 
+        public Pedido salvar(Pedido pedido){
+            if(pedidoRepository.existsByCodigo(pedido.getCodigo())){
+                throw new IllegalArgumentException("esse codigo ja existe ");
+
+
+            }
+
+            return  pedidoRepository.save(pedido);
+        }
+
     }
-}
+
