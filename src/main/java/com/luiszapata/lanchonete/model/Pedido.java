@@ -28,6 +28,14 @@ public class Pedido {
     @ElementCollection
     private List<String> observacao;
 
+
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
+    private List<HamburguerPedido> hamburguerPedidos;
+
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
+    private List<BebidaPedido> bebidaPedidos;
+
+
     public Long getId() {
         return id;
     }
@@ -90,5 +98,21 @@ public class Pedido {
 
     public void setObservacao(List<String> observacao) {
         this.observacao = observacao;
+    }
+
+    public List<HamburguerPedido> getHamburguerPedidos() {
+        return hamburguerPedidos;
+    }
+
+    public void setHamburguerPedidos(List<HamburguerPedido> hamburguerPedidos) {
+        this.hamburguerPedidos = hamburguerPedidos;
+    }
+
+    public List<BebidaPedido> getBebidaPedidos() {
+        return bebidaPedidos;
+    }
+
+    public void setBebidaPedidos(List<BebidaPedido> bebidaPedidos) {
+        this.bebidaPedidos = bebidaPedidos;
     }
 }

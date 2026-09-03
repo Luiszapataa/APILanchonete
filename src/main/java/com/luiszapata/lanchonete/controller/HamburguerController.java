@@ -30,7 +30,8 @@ public class HamburguerController {
 
     @GetMapping
     public List<Hamburguer> listar(){
-        return hamburguerService.listarHamburgueres();
+        return hamburguerService.listarHamburgueres ();
+
     }
 
     @GetMapping("/{id}")
