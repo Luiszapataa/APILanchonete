@@ -85,7 +85,7 @@ public class HamburguerService {
 
             Optional<Ingrediente> ingredienteOptional = ingredienteRepository.findById(item.getId());
 
-            if (ingredienteOptional.isPresent()) {,
+            if (ingredienteOptional.isPresent()) {
                 listaCompleta.add(ingredienteOptional.get());
             } else {
                 throw new IllegalArgumentException("ingrediente nao encontrado ");

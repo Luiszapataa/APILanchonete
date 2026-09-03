@@ -16,6 +16,7 @@ import java.util.List;
     @RestController
     @RequestMapping("/bebidas")
     public class BebidaController{
+
         private final BebidaService bebidaService;
 
         public BebidaController (BebidaService bebidaService){
@@ -32,20 +33,25 @@ import java.util.List;
             return bebidaService.buscaId(id);
         }
 
+
         @GetMapping("/pesquisar")
         public List<Bebida> pesquisar (@RequestParam String texto){
             return bebidaService.pesquisar(texto);
         }
+
 
         @PostMapping
         public Bebida cadastrar (@RequestBody Bebida bebida){
             return bebidaService.salvar(bebida);
         }
 
+
         @PutMapping("/{id}")
         public Bebida atualizar(@PathVariable Long id, @RequestBody Bebida bebida){
             return bebidaService.atualizar(id, bebida);
 
         }
+
+
     }
 

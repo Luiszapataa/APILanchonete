@@ -15,17 +15,20 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/ingredientes")
-public class IngredienteController {
+public class IngredienteController{
 
     private final IngredienteService ingredienteService;
 
-    public IngredienteController(IngredienteService ingredienteService) {
+    public IngredienteController(IngredienteService ingredienteService){
         this.ingredienteService = ingredienteService;
+
     }
 
     @GetMapping
-    public List<Ingrediente> listar() {
+    public List<Ingrediente> listar(){
         return ingredienteService.listarIngredientes();
+
+
     }
 
     @GetMapping("/{id}")
@@ -39,12 +42,20 @@ public class IngredienteController {
     }
 
     @PostMapping
-    public Ingrediente cadastrar(@RequestBody Ingrediente ingrediente) {
+    public Ingrediente cadastrar(@RequestBody Ingrediente ingrediente){
         return ingredienteService.salvar(ingrediente);
+
+
     }
 
+
     @PutMapping("/{id}")
-    public Ingrediente atualizar(@PathVariable Long id, @RequestBody Ingrediente ingrediente) {
+    public Ingrediente atualizar(@PathVariable Long id, @RequestBody Ingrediente ingrediente){
         return ingredienteService.atualizar(id, ingrediente);
     }
+
+
 }
+
+
+
