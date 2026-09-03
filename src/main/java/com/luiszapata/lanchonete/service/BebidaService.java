@@ -52,4 +52,8 @@ public class BebidaService {
         return bebidaRepository.save(bebidaExistente);
     }
 
+    public List<Bebida> pesquisar(String texto){
+        return bebidaRepository.findByCodigoContainingOrDescricaoContaining(texto, texto);
+    }
+
 }
