@@ -25,6 +25,7 @@ import java.util.Optional;
         public List<Pedido> listarPedidos(){
             return pedidoRepository.findAll();
 
+
         }
 
         public Pedido buscarId(Long id){
@@ -71,11 +72,14 @@ import java.util.Optional;
                 item.setPedido(pedido);
             }
 
-
             return  pedidoRepository.save(pedido);
-
-
         }
+
+
+        public List<Pedido> pesquisar(String texto){
+            return pedidoRepository.findByCodigoContainingOrDescricaoContaining(texto, texto);
+        }
+
 
 
 
