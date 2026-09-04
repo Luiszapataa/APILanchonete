@@ -45,9 +45,41 @@ import java.util.Optional;
 
 
             }
+            for (HamburguerPedido item : pedido.getHamburguerPedidos()){
+                Optional<Hamburguer> hamburguerOptional = hamburguerRepository.findById(item.getHamburguer().getId());
+
+                if (hamburguerOptional.isPresent()){
+                    item.setHamburguer(hamburguerOptional.get());
+
+                } else {
+                    throw new IllegalArgumentException("hamburguer nao encontrado ");
+
+                }
+                item.setPedido(pedido);
+            }
+
+            for (BebidaPedido item : pedido.getBebidaPedidos()){
+                Optional<Bebida> bebidaOptional = bebidaRepository.findById((item.getBebida().getId()));
+
+                if (bebidaOptional.isPresent()){
+                    item.setBebida(bebidaOptional.get());
+
+                } else {
+                    throw new IllegalArgumentException("bebida nao encontrada ");
+
+                }
+                item.setPedido(pedido);
+            }
+
 
             return  pedidoRepository.save(pedido);
+
+
         }
 
+
+
     }
+
+
 
