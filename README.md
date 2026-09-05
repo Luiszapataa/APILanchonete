@@ -36,9 +36,22 @@ git clone https://github.com/Luiszapataa/APILanchonete.git
 
 As tabelas são criadas automaticamente pelo Hibernate na primeira vez que roda (configurei o ddl-auto=update).
 
-## O QUE NÃO FOI IMPLEMENTADO AINDA
+## O QUE NÃO FOI IMPLEMENTADO
 
 - O requisito 3.4 (Adicionais no pedido)
 - O requisito 3.5 (Cálculo automático de total)
 
 - Não foi implementado por causa do prazo, priorizei deixar os requisitos obrigatórios muito bem feitos.
+
+## RODAR O FRONT-END
+
+1 - Entre na pasta do front-end: cd frontend
+
+2 - Instale as dependências: npm install
+
+3 - Rodar a aplicação: ng serve
+
+4 - Acessar no navegador: http://localhost:4200
+
+OBS: O BACK-END PRECISA ESTAR RODANDO AO MESMO TEMPO (PORTA 8080), SENÃO AS TELAS NÃO VÃO CONSEGUIR BUSCAR OS DADOS
+
