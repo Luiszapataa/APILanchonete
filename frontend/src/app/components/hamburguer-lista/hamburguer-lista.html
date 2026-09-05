@@ -1,0 +1,31 @@
+<h1>LISTA DE HAMBURGUERES </h1>
+
+<h2> CADASTRAR HAMBURGUER </h2>
+
+
+<input type="text" placeholder="Codigo" [(ngModel)]="novoCodigo">
+<input type="text" placeholder="Descricao" [(ngModel)]="novaDescricao">
+<input type="number" placeholder="Valor" [(ngModel)]="novoValor">
+<input type="text" placeholder="Ids dos ingredientes, separados por virgula" [(ngModel)]="novosIdsIngredientes">
+<button (click)="salvar()">Salvar</button>
+
+<table>
+
+  <tr>
+    <th>Codigo</th>
+    <th>Descrição</th>
+    <th>Valor</th>
+  </tr>
+
+  @for (hamburguer of hamburgueres(); track hamburguer.id){
+
+  <tr>
+
+    <td>{{ hamburguer.codigo }}</td>
+    <td>{{ hamburguer.descricao }}</td>
+    <td>{{ hamburguer.valor }}</td>
+
+  </tr>
+  }
+
+</table>
