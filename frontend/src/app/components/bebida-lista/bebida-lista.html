@@ -1,4 +1,15 @@
-<h1>lista de bebidas</h1>
+<h1> LISTA DE BEBIDAS </h1>
+
+<h2> CADASTRAR BEBIDAS </h2>
+<input type="text" placeholder="Codigo" [(ngModel)]="novoCodigo">
+<input type="text" placeholder="Descricao" [(ngModel)]="novaDescricao">
+<input type="number" placeholder="Preco" [(ngModel)]="novoPreco">
+
+<label> Contém açúcar
+<input type="checkbox"  [(ngModel)]="novoContemAcucar">
+</label>
+<button (click)="salvar()">Salvar</button>
+
 
 <table>
   <tr>
