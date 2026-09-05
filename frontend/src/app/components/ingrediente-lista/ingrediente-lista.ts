@@ -1,31 +1,51 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable, inject } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { Ingrediente } from '../../services/ingrediente';
 
+@Component({
+  selector: 'app-ingrediente-lista',
+  imports: [FormsModule],
+  templateUrl: './ingrediente-lista.html',
+  styleUrl: './ingrediente-lista.css',
 
-@Injectable({
-  providedIn: 'root',
 })
 
-export class Ingrediente {
 
-  private http = inject(HttpClient);
+export class IngredienteLista implements OnInit {
 
-  listar() {
-    return this.http.get('http://localhost:8080/ingredientes');
+  private ingredienteService = inject(Ingrediente);
 
+  ingredientes = signal<any[]>([]);
+
+  novoCodigo = '';
+  novaDescricao = '';
+  novoPreco = 0;
+  novoItemAdicional = false;
+
+  ngOnInit() {
+    this.ingredienteService.listar().subscribe((dados: any) => {
+      this.ingredientes.set(dados);
+
+
+    });
   }
 
-  criar(ingrediente: any){
-    return this.http.post('http://localhost:8080/ingredientes', ingrediente);
+  salvar() {
 
-  }
+    let ingrediente: any = {};
+    ingrediente.codigo = this.novoCodigo;
+    ingrediente.descricao = this.novaDescricao;
+    ingrediente.precoUnitario = this.novoPreco;
+    ingrediente.itemAdicional = this.novoItemAdicional;
 
-  buscarPorId(id: number){
-    return this.http.get(`http://localhost:8080/ingredientes/${id}`);
+    this.ingredienteService.criar(ingrediente).subscribe((resposta: any) => {
+      this.ingredienteService.listar().subscribe((lista: any) => {
+        this.ingredientes.set(lista);
 
-  }
+      });
 
-  atualizar(id: number, ingrediente: any){
-    return this.http.put(`http://localhost:8080/ingredientes/${id}`, ingrediente);
+
+    });
+
   }
 }

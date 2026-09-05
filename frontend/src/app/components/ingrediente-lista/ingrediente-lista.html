@@ -1,1 +1,35 @@
-<p>ingrediente-lista works!</p>
+<h1> LISTA DE INGREDIENTES </h1>
+
+<h2> CADASTRAR INGREDIENTES </h2>
+
+<input type="text" placeholder="Codigo" [(ngModel)]="novoCodigo">
+<input type="text" placeholder="Descricao" [(ngModel)]="novaDescricao">
+<input type="number" placeholder="Preco" [(ngModel)]="novoPreco">
+<label>
+  Pode ser adicional
+  <input type="checkbox" [(ngModel)]="novoItemAdicional">
+</label>
+<button (click)="salvar()">Salvar</button>
+
+<table>
+
+  <tr>
+    <th>Codigo</th>
+    <th>Descrição</th>
+    <th>Preço</th>
+    <th>Item Adicional</th>
+  </tr>
+
+  @for (ingrediente of ingredientes(); track ingrediente.id){
+
+  <tr>
+
+    <td>{{ ingrediente.codigo }}</td>
+    <td>{{ ingrediente.descricao }}</td>
+    <td>{{ ingrediente.precoUnitario }}</td>
+    <td>{{ ingrediente.itemAdicional }}</td>
+
+  </tr>
+
+  }
+</table>
