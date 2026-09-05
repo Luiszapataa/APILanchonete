@@ -1,0 +1,19 @@
+<h1>lista de bebidas</h1>
+
+<table>
+  <tr>
+    <th>Codigo</th>
+    <th>Descrição</th>
+    <th>Preço</th>
+    <th>Contem Açúcar</th>
+  </tr>
+  @for (bebida of bebidas(); track bebida.id){
+  <tr>
+    <td>{{ bebida.codigo }}</td>
+    <td>{{ bebida.descricao }}</td>
+    <td>{{ bebida.precoUnitario }}</td>
+    <td>{{ bebida.contemAcucar }}</td>
+  </tr>
+  }
+
+</table>
