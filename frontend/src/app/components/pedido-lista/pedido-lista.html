@@ -1,0 +1,35 @@
+<h1> LISTA DE PEDIDOS </h1>
+
+<h2> CADASTRAR PEDIDO </h2>
+<input type="text" placeholder="Codigo" [(ngModel)]="novoCodigo">
+<input type="date" placeholder="Data" [(ngModel)]="novaData">
+<input type="text" placeholder="Descricao" [(ngModel)]="novaDescricao">
+<input type="text" placeholder="Nome do cliente" [(ngModel)]="novoNomeCliente">
+<input type="text" placeholder="Endereco" [(ngModel)]="novoEnderecoCliente">
+<input type="text" placeholder="Telefone" [(ngModel)]="novoTelefoneCliente">
+<br>
+<input type="number" placeholder="Id do hamburguer" [(ngModel)]="novoIdHamburguer">
+<input type="number" placeholder="Quantidade hamburguer" [(ngModel)]="novaQuantidadeHamburguer">
+<input type="number" placeholder="Id da bebida" [(ngModel)]="novoIdBebida">
+<input type="number" placeholder="Quantidade bebida" [(ngModel)]="novaQuantidadeBebida">
+<button (click)="salvar()">Salvar</button>
+
+<table>
+
+  <tr>
+    <th>Codigo</th>
+    <th>Data</th>
+    <th>Cliente</th>
+  </tr>
+
+  @for (pedido of pedidos(); track pedido.id){
+
+  <tr>
+    <td>{{ pedido.codigo }}</td>
+    <td>{{ pedido.dataPedido }}</td>
+    <td>{{ pedido.nomeCliente }}</td>
+  </tr>
+  }
+
+
+</table>

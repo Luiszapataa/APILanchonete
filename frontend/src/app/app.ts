@@ -3,10 +3,11 @@ import { RouterOutlet } from '@angular/router';
 import { BebidaLista } from './components/bebida-lista/bebida-lista';
 import { IngredienteLista } from './components/ingrediente-lista/ingrediente-lista';
 import { HamburguerLista } from './components/hamburguer-lista/hamburguer-lista';
+import { PedidoLista } from './components/pedido-lista/pedido-lista';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, BebidaLista, IngredienteLista, HamburguerLista],
+  imports: [RouterOutlet, BebidaLista, IngredienteLista, HamburguerLista, PedidoLista],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
